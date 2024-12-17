@@ -16,7 +16,7 @@ export default function LoginForm({ onSuccess }: ILoginFormProps) {
       const response = await axios.post("/auth/login", { email, password });
       localStorage.setItem("token", response.data.token);
       onSuccess();
-    } catch (err) {
+    } catch (err:any) {
       setError(err.response?.data?.error || "Login failed");
     }
   };
