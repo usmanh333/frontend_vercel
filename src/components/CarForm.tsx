@@ -65,18 +65,18 @@ export default function CarForm() {
       return;
     }
 
-    const formPayload = new FormData();
-    Object.keys(formData).forEach((key) =>
-      formPayload.append(key, formData[key as keyof IFormData])
-    );
-    images.forEach((image) => formPayload.append("images", image));
+    // const formPayload = new FormData();
+    // Object.keys(formData).forEach((key) =>
+    //   formPayload.append(key, formData[key as keyof IFormData])
+    // );
+    // images.forEach((image) => formPayload.append("images", image));
 
     try {
       const token = localStorage.getItem("token");
-      await axios.post("/car/submit", formPayload, {
+      await axios.post("/car/submit", formData, {
         headers: {
           Authorization: token,
-          "Content-Type": "multipart/form-data",
+          // "Content-Type": "multipart/form-data",
         },
       });
       alert("Car data submitted successfully!");
